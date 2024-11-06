@@ -4,8 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h2{
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: xx-large;
+        }
+        table{
+            border-collapse: collapse;
+            border: 1px solid;
+            width: 100%;
+        }
+        th,td{
+            text-align: left;
+            padding: 10px;
+        }
+        tr{
+            background-color: grey
+        }
+        th{
+            background-color: red;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+        }
+        tr:hover{
+            background-color: black;
+            color: white;
+        }
+        td{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: medium;
+            font-weight: bolder;
+            font-style: italic;
+        }
+        img{
+            width: 80px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid;
+        }
+        fieldset{
+            border: 2px solid red;
+            width: 400px;
+        }
+        legend{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: brown;
+        text-decoration: underline;
+        }
+        input{
+            width: 100%;
+            border-radius: 5px;
+        }
+        form{
+            position: absolute;
+            top: auto;
+            right: 400px;
+        }
+        h1{
+            text-align: center;
+            border-bottom: 8px solid red;
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+        button{
+            background-color: brown;
+        }
+        @media  screen and (max-width:600px)  {
+            th,td{
+                font-size: xx-small;
+            }
+            form{
+            position: absolute;
+            top: auto;
+            margin-right: -300px;
+        }
+        h1{
+            text-align: center;
+            border-bottom: 8px solid rgb(0, 255, 17);
+            margin-left: 60px;
+            margin-right: 60px;
+            font-size: large;
+        }
+        fieldset{
+            border: 2px solid rgb(0, 255, 17);
+            width: 300px;
+        }
+        legend{
+        color: chartreuse;
+        }
+        button{
+            background-color: rgb(42, 165, 83);
+        }
+    }
+    </style>
 </head>
 <body>
-    <h1>HENNANE</h1>
+    <table>
+        <h2>COACHING ET SUIVIE PERSONNALISÉ</h2>
+        <tr>
+            <th>PROFILE</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>PHONE NUMBER</th>
+            <th>EMAIL</th>
+            <th>AGE</th>
+        </tr>
+        <tr>
+            <td><img src="ilyass.jpeg" alt=""></td>
+            <td>Ilyass</td>
+            <td>Hennane</td>
+            <td>0673737387</td>
+            <td>lorem@gmail.com</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td><img src="adnan.jpeg" alt=""></td>
+            <td>Adnan</td>
+            <td>Benfouina</td>
+            <td>0673737387</td>
+            <td>lorem@gmail.com</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td><img src="abdo.jpeg" alt=""></td>
+            <td>Abdo</td>
+            <td>Gueraa</td>
+            <td>0673737387</td>
+            <td>lorem@gmail.com</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td><img src="fouaad.jpeg" alt=""></td>
+            <td>Fouad</td>
+            <td>Zarzor</td>
+            <td>0673737387</td>
+            <td>lorem@gmail.com</td>
+            <td>29</td>
+        </tr>
+    </table>
+    <form>
+        <h1>COACHING-ONLINE</h1>
+        <fieldset>
+            <legend>TO BENEFIT FROM OUR SERVICE</legend>
+        <label>NOM</label><br>
+        <input type="text" placeholder="tapes votre nom"><br><br>
+        <label>prenom</label><br>
+        <input type="text" placeholder="tapes votre prenom"><br><br>
+        <label>password</label><br>
+        <input type="password" placeholder="tapes votre password"><br><br>
+        <label>date de naissace</label><br>
+        <input type="date" placeholder="tapes votre date"><br><br>
+        <label>email</label><br>
+        <input type="email" placeholder="tapes votre email"><br><br>
+        <label>telephone</label><br>
+        <input type="number" placeholder="tapez votre nombre"><br><br>
+        <label>nbr sea/sem</label><br>
+        <input type="number" placeholder="nombre de seance par semaine"><br><br>
+        <label>sexe</label><br>
+        <input type="text" placeholder="HOME/FEMME"><br><br>
+        <label>votre objectif</label><br>
+        <textarea></textarea><br>
+        <button>Envoyer</button>
+        </fieldset>
+</form>
 </body>
 </html>
