@@ -1,30 +1,21 @@
-name: Deploy to AWS S3
+name: Upload Website
 
-# Déclenchement du workflow à chaque push sur la branche 'main'
 on:
   push:
     branches:
-      - master  # Vous pouvez changer 'main' par une autre branche si vous le souhaitez
+    - master
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Ce workflow s'exécutera sur une machine virtuelle Ubuntu
-
+    runs-on: ubuntu-latest
     steps:
-      # Étape 1 : Récupérer le code du dépôt
-      - name: Checkout code
-        uses: actions/checkout@v2  # Cela télécharge votre code source dans l'environnement de GitHub Actions
-
-      # Étape 2 : Configurer AWS CLI pour l'authentification
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # Clé d'accès AWS (stockée en secret dans GitHub)
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # Clé secrète AWS (stockée en secret dans GitHub)
-          aws-region: ${{ secrets.AWS_REGION }}  # La région de votre bucket S3, par exemple 'us-west-2'
-
-      # Étape 3 : Synchroniser les fichiers vers le bucket S3
-      - name: Sync files to S3
-        run: aws s3 sync ./public/ s3://website-hn-host/ --delete
-        # Remplacez './build/' par le répertoire contenant vos fichiers à déployer (par exemple, 'dist' ou 'public')
-        # Remplacez 'your-bucket-name' par le nom de votre bucket S3
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-north-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: 'public'      # optional: defaults to entire repository
