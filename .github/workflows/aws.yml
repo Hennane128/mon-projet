@@ -1,2 +1,0 @@
-- name: Build project
-  run: npm run build  # or the command needed to build your project
