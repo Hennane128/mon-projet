@@ -18,12 +18,10 @@ jobs:
         distribution: 'temurin'  # Recommended distribution for JDK 17
         java-version: '17'
 
-    # Add this step to list all files and directories
-    - name: List files for debugging
-      run: ls -R
-
+   
     - name: Build with Maven
-      run: mvn clean install -f MyWebApp/pom.xml  # Update this path after finding the correct one
+     run: mvn clean install -f mon-projet/pom.xml
+  # Update this path after finding the correct one
 
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
